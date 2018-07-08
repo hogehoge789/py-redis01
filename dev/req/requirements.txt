@@ -1,3 +1,5 @@
 redis
 uwsgi
 django
+beautifulsoup4
+scrapy
