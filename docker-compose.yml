@@ -2,16 +2,20 @@
 version: '2'
 services:
   web:
-   image: nginx
+   build: proxy
    ports:
      - "8080:80"
    depends_on:
      - dev
+   volumes:
+     - ./dev/code/app:/var/www/html/app/
   dev:
-    build: dev
-    depends_on:
-      - redis
-    tty: true
+   build: dev
+   volumes:
+     - ./dev/code:/code   
+   depends_on:
+     - redis
+   tty: true
   redis:
    image: redis
 

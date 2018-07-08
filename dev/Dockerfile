@@ -15,8 +15,10 @@ RUN set -x && \
     git config --global color.status auto && \
     git config --global color.branch auto
 
-COPY code /code/
-WORKDIR /code
+COPY req /req/
+WORKDIR /req
 RUN pip install -r requirements.txt
+
+WORKDIR /code
 
 ENTRYPOINT [ "/bin/bash" ]
