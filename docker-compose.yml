@@ -1,8 +1,14 @@
 ---
 version: '2'
 services:
+  web:
+   image: nginx
+   ports:
+     - "8080:80"
+   depends_on:
+     - dev
   dev:
-    build: .
+    build: dev
     depends_on:
       - redis
     tty: true
