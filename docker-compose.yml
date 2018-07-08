@@ -1,0 +1,11 @@
+---
+version: '2'
+services:
+  dev:
+    build: .
+    depends_on:
+      - redis
+    tty: true
+  redis:
+   image: redis
+
